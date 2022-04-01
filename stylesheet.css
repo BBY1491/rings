@@ -89,7 +89,7 @@
     background: rgba(21, 194, 224, .32);
   }
   .stand.ring:after {
-    box-shadow: inset 1px 0 3px rgba(21, 194, 224, .);
+    box-shadow: inset 1px 0 3px rgba(21, 194, 224, .48);
   }
   
   .card {

@@ -7,10 +7,10 @@
 
 <body>
 
-<div class="card">
+  <div class="card">
   
     <div class="circles-container">
-      <div class="activity ring" id="activity">
+      <div class="brandedPayment ring" id="brandedPayment">
         <div class="dot"></div>
         <svg class="progress-ring" height="250" width="250">
           <linearGradient id="aGradient" x1="0%" y1="0%" x2="0%" y2="100%">
@@ -24,7 +24,7 @@
         </svg>
       </div>
 
-      <div class="exercise ring" id="exercise">
+      <div class="totalTech ring" id="totalTech">
         <div class="dot"></div>
         <svg class="progress-ring" height="185" width="185">
           <linearGradient id="eGradient" x1="0%" y1="0%" x2="0%" y2="100%">
@@ -38,7 +38,7 @@
         </svg>
       </div>
 
-      <div class="stand ring" id="stand">
+      <div class="npsCommit ring" id="npsCommit">
         <div class="dot"></div>
         <svg class="progress-ring" height="122" width="122">
           <linearGradient id="sGradient" x1="0%" y1="0%" x2="0%" y2="100%">
@@ -54,35 +54,35 @@
     </div>
   
     <div class="info">
-      <div class="row activity"><span id="activityValue">0</span>/880KCAL</div>
-      <div class="row exercise"><span id="exerciseValue">0</span>/30MIN.</div>
-      <div class="row stand"><span id="standValue">0</span>/12HOURS</div>
+      <div class="row brandedPayment"><span id="brandedPaymentValue">0</span></div>
+      <div class="row totalTech"><span id="totalTechValue">0</span></div>
+      <div class="row npsCommit"><span id="npsCommitValue">0</span></div>
     </div>
 
 </div>
 
 <div class="controls">
-  <div class="number-input" data-target="activity">
+  <div class="number-input" data-target="brandedPayment">
     <span class="increase">+</span>
-    <span class="value">400</span>
+    <span class="value">0</span>
     <span class="decrease">-</span>
   </div>
   
-  <div class="number-input" data-target="exercise">
+  <div class="number-input" data-target="totalTech">
     <span class="increase">+</span>
-    <span class="value">24</span>
+    <span class="value">0</span>
     <span class="decrease">-</span>
   </div>
   
-  <div class="number-input" data-target="stand">
+  <div class="number-input" data-target="npsCommit">
     <span class="increase">+</span>
-    <span class="value">10</span>
+    <span class="value">0</span>
     <span class="decrease">-</span>
   </div>
   
-  <input class="controller" type="number" name="activityAmount" id="activityAmount" data-target="activity" value="400" hidden>
-  <input class="controller" type="number" name="exerciseAmount" id="exerciseAmount" data-target="exercise" value="24" hidden>
-  <input class="controller" type="number" name="standAmount" id="standAmount" data-target="stand" value="10" hidden>
+  <input class="controller" type="number" name="brandedPaymentAmount" id="brandedPaymentAmount" data-target="brandedPayment" value="8" hidden>
+  <input class="controller" type="number" name="totalTechAmount" id="totalTechAmount" data-target="totalTech" value="8" hidden>
+  <input class="controller" type="number" name="npsCommitAmount" id="npsCommitAmount" data-target="npsCommit" value="12" hidden>
 </div>
 
 </body>

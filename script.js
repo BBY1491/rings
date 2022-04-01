@@ -1,4 +1,4 @@
-const circleNames = ["activity", "exercise", "stand"];
+const circleNames = ["brandedPayment", "totalTech", "npsCommit"];
 const circles = {};
 const controllers = document.querySelectorAll(".controller");
 
@@ -23,9 +23,9 @@ circleNames.forEach(circleName => {
   let limit = 0;
   let value = 0;
   
-  if(circleName === "activity") { limit = 880; value = 400; };
-  if(circleName === "exercise") { limit = 30; value = 24; };
-  if(circleName === "stand") { limit = 12; value = 10; };
+  if(circleName === "brandedPayment") { limit = 8; value = 0; };
+  if(circleName === "totalTech") { limit = 8; value = 0; };
+  if(circleName === "npsCommit") { limit = 12; value = 0; };
   
   circles[circleName] = {
     circle,
@@ -49,10 +49,11 @@ controllers.forEach(controller => {
   const iRI = document.querySelector(`.number-input[data-target="${target}"] .increase`);
   const iRV = document.querySelector(`.number-input[data-target="${target}"] .value`);
   const iRD = document.querySelector(`.number-input[data-target="${target}"] .decrease`);
-  const incrementer = target === "activity" ? 50 : 1;
+  const incrementer = target === "brandedPayment" ? 1 : 1;
   
   iRI.addEventListener("click", e => {
     const newValue = Math.abs(parseInt(iRV.textContent) + incrementer);
+    // const newValue = Math.abs(parseInt(iRV.textContent));
     iRV.textContent = newValue;
     controller.value = newValue;
     controller.dispatchEvent(new Event('change'));
@@ -60,6 +61,7 @@ controllers.forEach(controller => {
   
   iRD.addEventListener("click", e => {
     const newValue = Math.abs(parseInt(iRV.textContent) - incrementer);
+    // const newValue = Math.abs(parseInt(iRV.textContent));
     iRV.textContent = newValue;
     controller.value = newValue;
     controller.dispatchEvent(new Event('change'));

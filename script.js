@@ -1,7 +1,45 @@
+// Initialize Firebase
+var config = {
+  apiKey: "AIzaSyDuHhYBQXTSWXRMD_KCuqjHZz_l1KOZZgs",
+  authDomain: "membershiptracker-67056.firebaseapp.com",
+  databaseURL: "https://membershiptracker-67056-default-rtdb.firebaseio.com",
+  projectId: "membershiptracker-67056",
+  storageBucket: "membershiptracker-67056.appspot.com",
+  messagingSenderId: "423240971973"
+};
+
+firebase.initializeApp(config);
+
 const circleNames = ["brandedPayment", "totalTech", "npsCommit"];
 const circles = {};
 const controllers = document.querySelectorAll(".controller");
 
+// var ref = firebase.database().ref();
+
+// ref.on("value", function(snapshot) {
+//   console.log(snapshot.val());
+// }, function(error) {
+//   console.log("Error: "+ error.code);
+// });
+
+var trackerData = firebase.database().ref("trackerData/");
+
+trackerData.on("child_added", function(data, prevChildKey) {
+  var newVar = data.val();
+  console.log("brandedPaymentGoal: " + newVar.brandedPaymentGoal)
+  console.log("totalTechGoal: " + newVar.totalTechGoal)
+  console.log("npsCommitGoal: " + newVar.npsCommitGoal)
+  console.log("brandedPaymentValue: " + newVar.brandedPaymentVal)
+  console.log("totalTechValue: " + newVar.totalTechVal)
+  console.log("npsCommitValue: " + newVar.npsCommitVal)
+})
+
+const brandedPaymentGoal = 9;
+const totalTechGoal = 9;
+const npsCommitGoal = 10;
+const brandedPaymentVal = 1;
+const totalTechVal = 2;
+const npsCommitVal = 3;
 
 function setProgress(circle) {
   const percent = circle.value / circle.limit * 100;
@@ -23,9 +61,9 @@ circleNames.forEach(circleName => {
   let limit = 0;
   let value = 0;
   
-  if(circleName === "brandedPayment") { limit = 8; value = 0; };
-  if(circleName === "totalTech") { limit = 8; value = 0; };
-  if(circleName === "npsCommit") { limit = 12; value = 0; };
+  if(circleName === "brandedPayment") { limit = brandedPaymentGoal; value = brandedPaymentVal; };
+  if(circleName === "totalTech") { limit = totalTechGoal; value = totalTechVal; };
+  if(circleName === "npsCommit") { limit = npsCommitGoal; value = npsCommitVal; };
   
   circles[circleName] = {
     circle,
@@ -53,7 +91,6 @@ controllers.forEach(controller => {
   
   iRI.addEventListener("click", e => {
     const newValue = Math.abs(parseInt(iRV.textContent) + incrementer);
-    // const newValue = Math.abs(parseInt(iRV.textContent));
     iRV.textContent = newValue;
     controller.value = newValue;
     controller.dispatchEvent(new Event('change'));
@@ -61,7 +98,6 @@ controllers.forEach(controller => {
   
   iRD.addEventListener("click", e => {
     const newValue = Math.abs(parseInt(iRV.textContent) - incrementer);
-    // const newValue = Math.abs(parseInt(iRV.textContent));
     iRV.textContent = newValue;
     controller.value = newValue;
     controller.dispatchEvent(new Event('change'));

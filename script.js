@@ -1,3 +1,5 @@
+
+
 // Initialize Firebase
 var config = {
   apiKey: "AIzaSyDuHhYBQXTSWXRMD_KCuqjHZz_l1KOZZgs",
@@ -14,102 +16,121 @@ const circleNames = ["brandedPayment", "totalTech", "npsCommit"];
 const circles = {};
 const controllers = document.querySelectorAll(".controller");
 
-// var ref = firebase.database().ref();
-
-// ref.on("value", function(snapshot) {
-//   console.log(snapshot.val());
-// }, function(error) {
-//   console.log("Error: "+ error.code);
-// });
-
 var trackerData = firebase.database().ref("trackerData/");
 
-trackerData.on("child_added", function(data, prevChildKey) {
-  var newVar = data.val();
-  console.log("brandedPaymentGoal: " + newVar.brandedPaymentGoal)
-  console.log("totalTechGoal: " + newVar.totalTechGoal)
-  console.log("npsCommitGoal: " + newVar.npsCommitGoal)
-  console.log("brandedPaymentValue: " + newVar.brandedPaymentVal)
-  console.log("totalTechValue: " + newVar.totalTechVal)
-  console.log("npsCommitValue: " + newVar.npsCommitVal)
-})
+var trackerDataList = {bpG:"", bpA:"0"};
+// trackerData.on("child_added", function(data, prevChildKey) {
+//   var newVar = data.val();
 
-const brandedPaymentGoal = 9;
-const totalTechGoal = 9;
-const npsCommitGoal = 10;
-const brandedPaymentVal = 1;
-const totalTechVal = 2;
-const npsCommitVal = 3;
+//   console.log("brandedPaymentGoal: " + newVar.brandedPaymentGoal)
+//   let bpG = newVar.brandedPaymentGoal;
+//   console.log("totalTechGoal: " + newVar.totalTechGoal)
+//   let ttG = newVar.val().totalTechGoal;
+//   console.log("npsCommitGoal: " + newVar.npsCommitGoal)
+//   let npsG = newVar.val().npsCommitGoal;
+//   console.log("brandedPaymentValue: " + newVar.brandedPaymentVal)
+//   let bpA = newVar.val().brandedPaymentVal;
+//   console.log("totalTechValue: " + newVar.totalTechVal)
+//   let ttA = newVar.val().totalTechVal;
+//   console.log("npsCommitValue: " + newVar.npsCommitVal)
+//   let npsA = newVar.val().npsCommitVal;
+// })
 
-function setProgress(circle) {
-  const percent = circle.value / circle.limit * 100;
-  
-  if(percent <= 100) {
-    const offset = circle.length - percent / 100 * circle.length;  
-    circle.circle.style.strokeDashoffset = offset;
-  } else {
-    circle.circle.style.strokeDashoffset = 0;
-  }
-  
-  circle.dot.style.transform = `rotate(${percent * 3.6}deg)`;
+function FetchAllData() {
+  firebase
+    .database()
+    .ref("trackerData/")
+    .on("child_added", function(snapshot) {
+      var test =  snapshot.val();
+      console.log(test);
+        let bpG = test.brandedPaymentGoal;
+        let bpA = test.brandedPaymentVal;
+        let ttG = test.totalTechGoal;
+        let ttA = test.totalTechVal;
+        let npsG = test.npsCommitGoal;
+        let npsA = test.npsCommitVal;
+        ringTracking(bpG, bpA, ttG, ttA, npsG, npsA);
+      })
 }
 
-circleNames.forEach(circleName => {
-  const circle = document.querySelector(`#${circleName} .progress-ring__circle`);
-  const dot = document.querySelector(`#${circleName} .dot`);
-  const length = circle.getTotalLength();
-  let limit = 0;
-  let value = 0;
-  
-  if(circleName === "brandedPayment") { limit = brandedPaymentGoal; value = brandedPaymentVal; };
-  if(circleName === "totalTech") { limit = totalTechGoal; value = totalTechVal; };
-  if(circleName === "npsCommit") { limit = npsCommitGoal; value = npsCommitVal; };
-  
-  circles[circleName] = {
-    circle,
-    dot,
-    length,
-    limit,
-    value
-  }
-  
-  circle.style.strokeDashoffset = length;
-  circle.style.strokeDasharray = `${length} ${length}`;
-  
-  document.querySelector(`#${circleName}Value`).textContent = circles[circleName].value;
-  
-  setProgress(circles[circleName]);
-})
+function ringTracking(bpG, bpA, ttG, ttA, npsG, npsA) {
+  const brandedPaymentGoal = bpG;
+  const totalTechGoal = ttG;
+  const npsCommitGoal = npsG;
+  const brandedPaymentVal = bpA;
+  const totalTechVal = ttA;
+  const npsCommitVal = npsA;
 
-controllers.forEach(controller => {
-  
-  const target = controller.dataset.target;
-  const iRI = document.querySelector(`.number-input[data-target="${target}"] .increase`);
-  const iRV = document.querySelector(`.number-input[data-target="${target}"] .value`);
-  const iRD = document.querySelector(`.number-input[data-target="${target}"] .decrease`);
-  const incrementer = target === "brandedPayment" ? 1 : 1;
-  
-  iRI.addEventListener("click", e => {
-    const newValue = Math.abs(parseInt(iRV.textContent) + incrementer);
-    iRV.textContent = newValue;
-    controller.value = newValue;
-    controller.dispatchEvent(new Event('change'));
-  })
-  
-  iRD.addEventListener("click", e => {
-    const newValue = Math.abs(parseInt(iRV.textContent) - incrementer);
-    iRV.textContent = newValue;
-    controller.value = newValue;
-    controller.dispatchEvent(new Event('change'));
-  })
-  
-  controller.addEventListener("change", e => {
-    const value = e.target.value;
-    const target = e.target.dataset.target;
+  function setProgress(circle) {
+    const percent = circle.value / circle.limit * 100;
     
-    circles[target].value = value;
-    setProgress(circles[target]);
-    document.querySelector(`#${target}Value`).textContent = circles[target].value;
+    if(percent <= 100) {
+      const offset = circle.length - percent / 100 * circle.length;  
+      circle.circle.style.strokeDashoffset = offset;
+    } else {
+      circle.circle.style.strokeDashoffset = 0;
+    }
+    
+    circle.dot.style.transform = `rotate(${percent * 3.6}deg)`;
+  }
+
+  circleNames.forEach(circleName => {
+    const circle = document.querySelector(`#${circleName} .progress-ring__circle`);
+    const dot = document.querySelector(`#${circleName} .dot`);
+    const length = circle.getTotalLength();
+    let limit = 0;
+    let value = 0;
+    
+    if(circleName === "brandedPayment") { limit = brandedPaymentGoal; value = brandedPaymentVal; };
+    if(circleName === "totalTech") { limit = totalTechGoal; value = totalTechVal; };
+    if(circleName === "npsCommit") { limit = npsCommitGoal; value = npsCommitVal; };
+    
+    circles[circleName] = {
+      circle,
+      dot,
+      length,
+      limit,
+      value
+    }
+    
+    circle.style.strokeDashoffset = length;
+    circle.style.strokeDasharray = `${length} ${length}`;
+    
+    document.querySelector(`#${circleName}Value`).textContent = circles[circleName].value;
+    
+    setProgress(circles[circleName]);
   })
-  
-})
+
+  controllers.forEach(controller => {
+    
+    const target = controller.dataset.target;
+    const iRI = document.querySelector(`.number-input[data-target="${target}"] .increase`);
+    const iRV = document.querySelector(`.number-input[data-target="${target}"] .value`);
+    const iRD = document.querySelector(`.number-input[data-target="${target}"] .decrease`);
+    const incrementer = target === "brandedPayment" ? 1 : 1;
+    
+    iRI.addEventListener("click", e => {
+      const newValue = Math.abs(parseInt(iRV.textContent) + incrementer);
+      iRV.textContent = newValue;
+      controller.value = newValue;
+      controller.dispatchEvent(new Event('change'));
+    })
+    
+    iRD.addEventListener("click", e => {
+      const newValue = Math.abs(parseInt(iRV.textContent) - incrementer);
+      iRV.textContent = newValue;
+      controller.value = newValue;
+      controller.dispatchEvent(new Event('change'));
+    })
+    
+    controller.addEventListener("change", e => {
+      const value = e.target.value;
+      const target = e.target.dataset.target;
+      
+      circles[target].value = value;
+      setProgress(circles[target]);
+      document.querySelector(`#${target}Value`).textContent = circles[target].value;
+    })
+    
+  })
+}

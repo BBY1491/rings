@@ -85,8 +85,11 @@
   <input class="controller" type="number" name="npsCommitAmount" id="npsCommitAmount" data-target="npsCommit" value="12" hidden>
 </div>
 
+<ul id = "Data-Hidden" class="datapoints"></ul>
+
 </body>
 
 <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
 <script src="script.js"></script>
+<script> window.onload = FetchAllData(); </script>
 </html>

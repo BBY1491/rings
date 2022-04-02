@@ -177,6 +177,11 @@ body {
   --color: #15C2E0;
 }
 
+.datapoints {
+  color: white;
+  /* display: none; */
+}
+
 @media only screen and (max-width: 768px) {
   .card {
     display: block;

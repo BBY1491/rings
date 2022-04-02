@@ -22,10 +22,7 @@ function writeAllData( bpA, ttA, npsA) {
     .update({
       brandedPaymentVal: bpA,
       totalTechVal: ttA,
-      npsCommitVal: npsA,
-      brandedPaymentGoal: 4,
-      totalTechGoal: 5,
-      npsCommitGoal: 6
+      npsCommitVal: npsA
     });
 }
 
@@ -125,10 +122,7 @@ function ringTracking(bpG, bpA, ttG, ttA, npsG, npsA) {
       
       circles[target].value = value;
       setProgress(circles[target]);
-      document.querySelector(`#${target}Value`).textContent = circles[target].value;
-    
-      
-      
+      document.querySelector(`#${target}Value`).textContent = circles[target].value;    
     })
 
     const element = document.getElementById("submit");
@@ -140,6 +134,7 @@ function ringTracking(bpG, bpA, ttG, ttA, npsG, npsA) {
       var newnpsA = document.getElementById("value3").innerHTML;
       console.log(newbpA);
       writeAllData(newbpA, newttA, newnpsA);
+      location.reload(true);
     })
     
   })

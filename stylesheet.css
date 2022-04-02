@@ -104,7 +104,7 @@ body {
   background: rgba(94, 91, 91, 0.1);
   border-radius: 25px;
   padding: 32px 32px 100px 100px;
-  /* transition: transform 0.5s; */
+  transition: transform 0.5s;
   box-shadow: 2px 2px 50px rgba(0, 0, 0, 0.2);
   margin-bottom: 25vh;
 }
@@ -135,6 +135,15 @@ body {
   transform: translateX(-50%);
   left: 50%;
   bottom: 10vh;
+}
+
+.submit {
+  color: white;
+  border: 1px solid white;
+}
+.submit:hover {
+  color: rgb(148, 34, 34);
+  border: 1px solid white;
 }
 
 .number-input {

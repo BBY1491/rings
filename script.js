@@ -1,5 +1,3 @@
-
-
 // Initialize Firebase
 var config = {
   apiKey: "AIzaSyDuHhYBQXTSWXRMD_KCuqjHZz_l1KOZZgs",
@@ -16,25 +14,20 @@ const circleNames = ["brandedPayment", "totalTech", "npsCommit"];
 const circles = {};
 const controllers = document.querySelectorAll(".controller");
 
-var trackerData = firebase.database().ref("trackerData/");
 
-var trackerDataList = {bpG:"", bpA:"0"};
-// trackerData.on("child_added", function(data, prevChildKey) {
-//   var newVar = data.val();
-
-//   console.log("brandedPaymentGoal: " + newVar.brandedPaymentGoal)
-//   let bpG = newVar.brandedPaymentGoal;
-//   console.log("totalTechGoal: " + newVar.totalTechGoal)
-//   let ttG = newVar.val().totalTechGoal;
-//   console.log("npsCommitGoal: " + newVar.npsCommitGoal)
-//   let npsG = newVar.val().npsCommitGoal;
-//   console.log("brandedPaymentValue: " + newVar.brandedPaymentVal)
-//   let bpA = newVar.val().brandedPaymentVal;
-//   console.log("totalTechValue: " + newVar.totalTechVal)
-//   let ttA = newVar.val().totalTechVal;
-//   console.log("npsCommitValue: " + newVar.npsCommitVal)
-//   let npsA = newVar.val().npsCommitVal;
-// })
+function writeAllData( bpA, ttA, npsA) {
+  firebase
+    .database()
+    .ref("/trackerData/0")
+    .update({
+      brandedPaymentVal: bpA,
+      totalTechVal: ttA,
+      npsCommitVal: npsA,
+      brandedPaymentGoal: 4,
+      totalTechGoal: 5,
+      npsCommitGoal: 6
+    });
+}
 
 function FetchAllData() {
   firebase
@@ -103,6 +96,8 @@ function ringTracking(bpG, bpA, ttG, ttA, npsG, npsA) {
 
   controllers.forEach(controller => {
     
+    // var metric1Val = document.getElementById(metric1);
+    // metric1Val.value = bpA;
     const target = controller.dataset.target;
     const iRI = document.querySelector(`.number-input[data-target="${target}"] .increase`);
     const iRV = document.querySelector(`.number-input[data-target="${target}"] .value`);
@@ -114,6 +109,7 @@ function ringTracking(bpG, bpA, ttG, ttA, npsG, npsA) {
       iRV.textContent = newValue;
       controller.value = newValue;
       controller.dispatchEvent(new Event('change'));
+
     })
     
     iRD.addEventListener("click", e => {
@@ -130,6 +126,20 @@ function ringTracking(bpG, bpA, ttG, ttA, npsG, npsA) {
       circles[target].value = value;
       setProgress(circles[target]);
       document.querySelector(`#${target}Value`).textContent = circles[target].value;
+    
+      
+      
+    })
+
+    const element = document.getElementById("submit");
+
+    element.addEventListener("click", e => {
+      
+      var newbpA = document.getElementById("value1").innerHTML;
+      var newttA = document.getElementById("value2").innerHTML;
+      var newnpsA = document.getElementById("value3").innerHTML;
+      console.log(newbpA);
+      writeAllData(newbpA, newttA, newnpsA);
     })
     
   })

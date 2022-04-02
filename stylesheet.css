@@ -167,6 +167,7 @@ body {
   color: white;
 }
 
+
 .number-input[data-target="brandedPayment"] {
   --color: #F6337A;
 }

@@ -64,28 +64,29 @@
 <div class="controls">
   <div class="number-input" data-target="brandedPayment">
     <span class="increase">+</span>
-    <span class="value">0</span>
+    <span class="value" id="value1">0</span>
     <span class="decrease">-</span>
   </div>
   
   <div class="number-input" data-target="totalTech">
     <span class="increase">+</span>
-    <span class="value">0</span>
+    <span class="value" id="value2">0</span>
     <span class="decrease">-</span>
   </div>
   
   <div class="number-input" data-target="npsCommit">
     <span class="increase">+</span>
-    <span class="value">0</span>
+    <span class="value" id="value3">0</span>
     <span class="decrease">-</span>
   </div>
+
+  <button id="submit"> Submit </button>  
   
   <input class="controller" type="number" name="brandedPaymentAmount" id="brandedPaymentAmount" data-target="brandedPayment" value="8" hidden>
   <input class="controller" type="number" name="totalTechAmount" id="totalTechAmount" data-target="totalTech" value="8" hidden>
   <input class="controller" type="number" name="npsCommitAmount" id="npsCommitAmount" data-target="npsCommit" value="12" hidden>
-</div>
 
-<ul id = "Data-Hidden" class="datapoints"></ul>
+</div>
 
 </body>
 

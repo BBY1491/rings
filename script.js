@@ -99,7 +99,7 @@ function ringTracking(bpG, bpA, ttG, ttA, npsG, npsA) {
     
     circle.style.strokeDashoffset = length;
     circle.style.strokeDasharray = `${length} ${length}`;
-    
+    // document.getElementById("metric1").innerHTML = bpA; 
     document.querySelector(`#${circleName}Value`).textContent = circles[circleName].value;
     
     setProgress(circles[circleName]);
@@ -130,10 +130,8 @@ function ringTracking(bpG, bpA, ttG, ttA, npsG, npsA) {
     controller.addEventListener("change", e => {
       const value = e.target.value;
       const target = e.target.dataset.target;
-      
-      // if(circles[target].value != 0) {
-        circles[target].value = value;
-      // }
+
+      circles[target].value = value;
       
       setProgress(circles[target]);
       document.querySelector(`#${target}Value`).textContent = circles[target].value;    

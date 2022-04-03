@@ -15,6 +15,8 @@ body {
   height: 250px; width: 250px;
 }
 
+
+
 .dot {
   z-index: 2;
   position: absolute;
@@ -112,6 +114,7 @@ body {
 
 .visual-card {
   display: flex;
+  width: 100%;
   align-items: center;
   box-sizing: border-box;
   background: rgba(94, 91, 91, 0.1);
@@ -137,9 +140,9 @@ body {
   user-select: none;          /* Likely future */      
 }
 
-.info .row.brandedPayment { color: #3336f6; }
+.info .row.brandedPayment { color: #0765dc; }
 .info .row.totalTech { color: #fd6836; }
-.info .row.npsCommit { color: #e0b715; }
+.info .row.npsCommit { color: #dbd50b; }
 
 .controls {
   display: flex;
@@ -190,13 +193,13 @@ body {
 
 
 .number-input[data-target="brandedPayment"] {
-  --color: #3336f6;
+  --color: #0765dc;
 }
 .number-input[data-target="totalTech"] {
   --color: #fd6836;
 }
 .number-input[data-target="npsCommit"] {
-  --color: #e0b715;
+  --color: #dbd50b;
 }
 
 .datapoints {

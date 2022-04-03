@@ -106,9 +106,6 @@ function ringTracking(bpG, bpA, ttG, ttA, npsG, npsA) {
   })
 
   controllers.forEach(controller => {
-    
-    // var metric1Val = document.getElementById(metric1);
-    // metric1Val.value = bpA;
     const target = controller.dataset.target;
     const iRI = document.querySelector(`.number-input[data-target="${target}"] .increase`);
     const iRV = document.querySelector(`.number-input[data-target="${target}"] .value`);
@@ -134,7 +131,10 @@ function ringTracking(bpG, bpA, ttG, ttA, npsG, npsA) {
       const value = e.target.value;
       const target = e.target.dataset.target;
       
-      circles[target].value = value;
+      // if(circles[target].value != 0) {
+        circles[target].value = value;
+      // }
+      
       setProgress(circles[target]);
       document.querySelector(`#${target}Value`).textContent = circles[target].value;    
     })
@@ -156,12 +156,21 @@ function ringTracking(bpG, bpA, ttG, ttA, npsG, npsA) {
 function handleSubmit(event) {
   var form = document.querySelector("form");
   console.log( "====== Form Submission ======" );
-  
   var bpG = form.elements.brandedPayment.value;
   var ttG = form.elements.totalTech.value;
   var npsG = form.elements.npsCommit.value;
 
-  writeAllGoals(bpG, ttG, npsG);
+  if(form.elements.brandedPayment.value == 0) {
+    bpG = 1;
+  }
+  if(form.elements.totalTech.value == 0) {
+    ttG = 1;
+  }
+  if(form.elements.npsCommit.value == 0) {
+    npsG = 1;
+  }
+  
 
+  writeAllGoals(bpG, ttG, npsG);
   // event.preventDefault();
 }

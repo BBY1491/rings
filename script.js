@@ -65,6 +65,10 @@ function ringTracking(bpG, bpA, ttG, ttA, npsG, npsA) {
   const totalTechVal = ttA;
   const npsCommitVal = npsA;
 
+  document.getElementById("value1").innerHTML = bpA;
+  document.getElementById("value2").innerHTML = ttA;
+  document.getElementById("value3").innerHTML = npsA;
+
   function setProgress(circle) {
     const percent = circle.value / circle.limit * 100;
     

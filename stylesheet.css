@@ -1,3 +1,4 @@
+
 :root {
   --background: #000;
 }
@@ -72,29 +73,29 @@ body {
 /* Themes */
 .brandedPayment.ring {
   height: 250px; width: 250px;
-  background: rgba(246, 51, 122, .32);
+  background: rgba(54, 51, 246, 0.32);
 }
 .brandedPayment.ring:before {
-  box-shadow: 1px 0px 3px rgba(246, 51, 122, .48);
+  box-shadow: 1px 0px 3px rgba(54, 51, 246, .48);
 }
 .brandedPayment.ring:after {
-  box-shadow: inset 1px 0 3px rgba(246, 51, 122, .48);
+  box-shadow: inset 1px 0 3px rgba(54, 51, 246, .48);
 }
 
 .totalTech.ring {
   height: 185px; width: 185px;
-  background: rgba(111, 228, 48, .32);
+  background: rgba(209, 96, 3, 0.32);
 }
 .totalTech.ring:after {
-  box-shadow: inset 1px 0 3px rgba(111, 228, 48, .48);
+  box-shadow: inset 1px 0 3px rgba(209, 96, 3, .48);
 }
 
 .npsCommit.ring {
   height: 122px; width: 122px;
-  background: rgba(21, 194, 224, .32);
+  background: rgba(184, 165, 0, 0.32);
 }
 .npsCommit.ring:after {
-  box-shadow: inset 1px 0 3px rgba(21, 194, 224, .48);
+  box-shadow: inset 1px 0 3px rgba(184, 165, 0, .48);
 }
 
 .card {
@@ -136,9 +137,9 @@ body {
   user-select: none;          /* Likely future */      
 }
 
-.info .row.brandedPayment { color: #F6337A; }
-.info .row.totalTech { color: #B1FD36; }
-.info .row.npsCommit { color: #15C2E0; }
+.info .row.brandedPayment { color: #3336f6; }
+.info .row.totalTech { color: #fd6836; }
+.info .row.npsCommit { color: #e0b715; }
 
 .controls {
   display: flex;
@@ -189,13 +190,13 @@ body {
 
 
 .number-input[data-target="brandedPayment"] {
-  --color: #F6337A;
+  --color: #3336f6;
 }
 .number-input[data-target="totalTech"] {
-  --color: #B1FD36;
+  --color: #fd6836;
 }
 .number-input[data-target="npsCommit"] {
-  --color: #15C2E0;
+  --color: #e0b715;
 }
 
 .datapoints {

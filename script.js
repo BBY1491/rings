@@ -136,6 +136,5 @@ function ringTracking(bpG, bpA, ttG, ttA, npsG, npsA) {
       writeAllData(newbpA, newttA, newnpsA);
       location.reload(true);
     })
-    
   })
 }

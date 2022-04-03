@@ -14,6 +14,9 @@ const circleNames = ["brandedPayment", "totalTech", "npsCommit"];
 const circles = {};
 const controllers = document.querySelectorAll(".controller");
 
+let form = document.querySelector('form');
+
+form.addEventListener('submit', handleSubmit);
 
 function writeAllData( bpA, ttA, npsA) {
   firebase
@@ -23,6 +26,17 @@ function writeAllData( bpA, ttA, npsA) {
       brandedPaymentVal: bpA,
       totalTechVal: ttA,
       npsCommitVal: npsA
+    });
+}
+
+function writeAllGoals (bpG, ttG, npsG){
+  firebase
+    .database()
+    .ref("/trackerData/0")
+    .update({
+      brandedPaymentGoal: bpG,
+      totalTechGoal: ttG,
+      npsCommitGoal: npsG
     });
 }
 
@@ -137,4 +151,17 @@ function ringTracking(bpG, bpA, ttG, ttA, npsG, npsA) {
       location.reload(true);
     })
   })
+}
+
+function handleSubmit(event) {
+  var form = document.querySelector("form");
+  console.log( "====== Form Submission ======" );
+  
+  var bpG = form.elements.brandedPayment.value;
+  var ttG = form.elements.totalTech.value;
+  var npsG = form.elements.npsCommit.value;
+
+  writeAllGoals(bpG, ttG, npsG);
+
+  // event.preventDefault();
 }

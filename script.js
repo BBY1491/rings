@@ -55,6 +55,7 @@ function FetchAllData() {
         let npsA = test.npsa;
         ringTracking(bpG, bpA, ttG, ttA, npsG, npsA);
       })
+  // getTime();
 }
 
 function ringTracking(bpG, bpA, ttG, ttA, npsG, npsA) {
@@ -179,4 +180,20 @@ function handleSubmit(event) {
 
 function checkForChanges() {
   window.setInterval('FetchAllData()', 30000);
+  
 }
+
+// function getTime() {
+//   var now = new Date().getHours()
+
+//   var startOfDay = 10;
+//   var endOfDay = 20;
+//   console.log(now);
+//   if(now >= startOfDay && now <= endOfDay){
+//     console.log("Checking for updates...")
+//     checkForChanges();
+//   }
+//   else{
+//     console.log("Outside Store Hours... No Updates will be done.")
+//   }
+// }

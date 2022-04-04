@@ -1,5 +1,5 @@
 :root {
-  --background: #000;
+  --background: rgb(5, 38, 187);
 }
 
 html, body { 
@@ -122,7 +122,7 @@ body {
   display: flex;
   align-items: center;
   box-sizing: border-box;
-  background: rgba(71, 71, 71, 0.884);
+  background: rgba(0, 0, 0, 0.884);
   border-radius: 25px;
   padding: 50px;
   transition: transform 0.5s;
@@ -136,7 +136,7 @@ body {
   display: flex;
   align-items: center;
   box-sizing: border-box;
-  background: rgba(94, 91, 91, 0.1);
+  background: rgba(0, 0, 0, 0.1);
   border-radius: 25px;
   padding: 32px 32px 32px 32px;
   transition: transform 0.5s;
@@ -171,9 +171,10 @@ body {
   margin-left: 50%;
   margin-right: auto;
   transform: translateX(-50%);
-  background: rgba(71, 71, 71, 0.884);
+  background: rgba(0, 0, 0, 0.884);
   border-radius: 25px;
   padding: 35px;
+  box-shadow: 2px 2px 50px rgba(0, 0, 0, 0.9);
 }
 
 .submit {
@@ -238,18 +239,20 @@ body {
 
 .form {
   display: block;
-  background: rgba(71, 71, 71, 0.884);
+  background: rgba(0, 0, 0, 0.884);
   border-radius: 25px;
   padding: 35px;
+  box-shadow: 2px 2px 50px rgba(0, 0, 0, 0.9);
 }
 
 input[type=number], select, textarea{
-  width: 50%;
+  width: 90%;
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
   resize: vertical;
+  margin-bottom: 50px;
 }
 
 label {
@@ -258,8 +261,8 @@ label {
 }
 
 input[type=submit] {
-  background-color: #04AA6D;
-  color: white;
+  background-color: #0429d0;
+  color: rgb(238, 234, 20);
   margin-top: 15px;
   padding: 10px;
   width: 100%;
@@ -290,9 +293,12 @@ input[type=submit] {
   clear: both;
 }
 
+.goal-text {
+  color: yellow;
+}
 @media only screen and (max-width: 600px) {
   body {
-    background-color: lightblue;
+    background-color: rgb(29, 59, 208);
   }
 
   .controls { 
@@ -305,9 +311,13 @@ input[type=submit] {
 
    .form {
     display: block;
-    background: rgba(71, 71, 71, 0.884);
+    background: rgba(0, 0, 0, 0.884);
     border-radius: 25px;
     padding: 35px;
     zoom: 0.7;
+  }
+
+  .visual-card{
+    zoom: 0.2;
   }
 }

@@ -105,23 +105,45 @@
 
 <form class="form" action="">
   <form>
-    <p> 
-      <div class = "goal-text">Branded Payment Goal: </div>
-      <label for = "brandedPayment" > </label>
-      <input class = "form-element" id = "brandedPayment" type = "number">
-    </p>
-    <p>
-      <div class = "goal-text">TotalTech Goal: </div>
-      <label for = "totalTech" > </label>
-      <input class = "form-element" id = "totalTech" type = "number">
-    </p>
-    <p>
-      <div class = "goal-text">NPS Goal: </div>
-      <label for = "npsCommit" > </label>
-      <input class = "form-element" id = "npsCommit" type = "number">
-    </p>
+    <div class="row">
+        <p> 
+          <div class="col-25">
+            <div class = "goal-text" id = "brandedPaymentT" >Branded Payment Goal: </div>
+          </div>
+          <div class="col-75">
+            <label for = "brandedPayment" > </label>
+            <input class = "form-element" id = "brandedPayment" type = "number">
+          </div>
+        </p>
+    </div>
+ 
+      <div class="row">
+        <p>
+          <div class="col-25">
+            <div class = "goal-text">TotalTech Goal: </div>
+          </div>
+          <div class="col-75">
+            <label for = "totalTech" > </label>
+            <input class = "form-element" id = "totalTech" type = "number">
+          </div>
+        </p>
+      </div>
+      <div class="row">
+        <p>
+          <div class="col-25">
+            <div class = "goal-text">NPS Goal: </div>
+          </div>
+          <div class="col-75">
+            <label for = "npsCommit" > </label>
+            <input class = "form-element" id = "npsCommit" type = "number">
+          </div>
+        </p>
+      </div>
+      <div class="row">
+        <input class = "btn-primary" type="submit">
+      </div>
 
-    <input class = "btn-primary" type="submit">
+
   </form>
 </form>
 </body>

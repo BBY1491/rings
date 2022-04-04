@@ -176,3 +176,7 @@ function handleSubmit(event) {
   writeAllGoals(bpG, ttG, npsG);
   // event.preventDefault();
 }
+
+function checkForChanges() {
+  window.setInterval('FetchAllData()', 30000);
+}

@@ -181,8 +181,8 @@ body {
 }
 
 .submit {
-  background-color: #04AA6D;
-  color: white;
+  background-color: #0429d0;
+  color: rgb(238, 234, 20);
   padding: 5px;
   border: none;
   border-radius: 4px;
@@ -299,7 +299,7 @@ input[type=submit] {
 .goal-text {
   color: yellow;
 }
-@media only screen and (max-width: 600px) {
+/* @media only screen and (max-width: 600px) {
   
   .controls { 
     zoom: 0.8;
@@ -320,4 +320,4 @@ input[type=submit] {
   .visual-card{
     zoom: 0.8;
   }
-}
+} */

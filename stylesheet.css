@@ -298,7 +298,7 @@ input[type=submit] {
 }
 @media only screen and (max-width: 600px) {
   body {
-    background-color: rgb(29, 59, 208);
+    background-color: rgb(0, 0, 0);
   }
 
   .controls { 
@@ -318,6 +318,6 @@ input[type=submit] {
   }
 
   .visual-card{
-    zoom: 0.2;
+    zoom: 0.8;
   }
 }

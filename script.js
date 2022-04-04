@@ -23,9 +23,9 @@ function writeAllData( bpA, ttA, npsA) {
     .database()
     .ref("/trackerData/0")
     .update({
-      brandedPaymentVal: bpA,
-      totalTechVal: ttA,
-      npsCommitVal: npsA
+      bpa: bpA,
+      tta: ttA,
+      npsa: npsA
     });
 }
 
@@ -34,9 +34,9 @@ function writeAllGoals (bpG, ttG, npsG){
     .database()
     .ref("/trackerData/0")
     .update({
-      brandedPaymentGoal: bpG,
-      totalTechGoal: ttG,
-      npsCommitGoal: npsG
+      bpg: bpG,
+      ttg: ttG,
+      npsg: npsG
     });
 }
 
@@ -47,12 +47,12 @@ function FetchAllData() {
     .on("child_added", function(snapshot) {
       var test =  snapshot.val();
       console.log(test);
-        let bpG = test.brandedPaymentGoal;
-        let bpA = test.brandedPaymentVal;
-        let ttG = test.totalTechGoal;
-        let ttA = test.totalTechVal;
-        let npsG = test.npsCommitGoal;
-        let npsA = test.npsCommitVal;
+        let bpG = test.bpg;
+        let bpA = test.bpa;
+        let ttG = test.ttg;
+        let ttA = test.tta;
+        let npsG = test.npsg;
+        let npsA = test.npsa;
         ringTracking(bpG, bpA, ttG, ttA, npsG, npsA);
       })
 }

@@ -126,20 +126,21 @@ body {
   padding: 50px;
   transition: transform 0.5s;
   box-shadow: 2px 2px 50px rgba(0, 0, 0, 0.9);
+  
   /* margin-bottom: 25vh; */
 
 }
 
 .visual-card {
   display: flex;
-  width: 100%;
   align-items: center;
   box-sizing: border-box;
   background: rgba(94, 91, 91, 0.1);
   border-radius: 25px;
-  padding: 100px 32px 100px 100px;
+  padding: 32px 32px 32px 32px;
   transition: transform 0.5s;
   box-shadow: 2px 2px 50px rgba(0, 0, 0, 0.2);
+  zoom: 2.5;
 }
 
 .info {
@@ -165,6 +166,9 @@ body {
 .controls {
   margin: 50px;
   display: flex;
+  position: relative;
+  margin-left: 50%;
+  margin-right: auto;
   transform: translateX(-50%);
   background: rgba(71, 71, 71, 0.884);
   border-radius: 25px;

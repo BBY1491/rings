@@ -69,6 +69,7 @@ function ringTracking(bpG, bpA, ttG, ttA, npsG, npsA) {
   document.getElementById("value1").innerHTML = bpA;
   document.getElementById("value2").innerHTML = ttA;
   document.getElementById("value3").innerHTML = npsA;
+  
   document.getElementById("brandedPaymentGoal").innerHTML = bpG;
   document.getElementById("totalTechGoal").innerHTML = ttG;
   document.getElementById("npsCommitGoal").innerHTML = npsG;

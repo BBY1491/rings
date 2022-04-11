@@ -182,7 +182,7 @@ function handleSubmit(event) {
 }
 
 function checkForChanges() {
-  window.setInterval('FetchAllData()', 30000);
+  window.setInterval('FetchAllData()', 15000);
 
   
 }
